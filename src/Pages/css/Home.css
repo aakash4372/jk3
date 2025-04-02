@@ -1,0 +1,161 @@
+.hero-section {
+    padding: 60px 0;
+    position: relative;
+    /* Full-screen height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    /* Adjust text color */
+    text-align: center;
+    overflow: hidden;
+  }
+  
+  .hero-section .container {
+    position: relative;
+    z-index: 2;
+  }
+  
+  
+  .hero-section h4 {
+    font-size: 5.5rem;
+    font-weight: 700;
+    font-family: var(--fontfamily4);
+    color: #3e495b;
+    margin-bottom: 10px;
+  }
+  
+  .hero-section .display-4 {
+    font-size: 5rem !important;
+    font-weight: 800;
+    background: linear-gradient(90deg, #9a4a9c, #c04499);
+    background-clip: text;
+    -webkit-background-clip: text;
+    font-family: var(--fontfamily);
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    line-height: 1.2;
+    padding-bottom: 5px;
+  }
+  
+  .hero-section .lead {
+    font-size: 17px;
+    color: #3e495b;
+    font-family: var(--fontfamily3);
+    font-weight: 500;
+  }
+  
+  .hero-section .custom-btn {
+    display: flex;
+    align-items: center;
+    font-family: var(--fontfamily2);
+    justify-content: space-between;
+    background: linear-gradient(to top, #a752a1, #a752a1);
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 22px 24px;
+    border: none;
+    border-radius: 12px;
+    transition: background 0.8s ease-in-out, transform 0.3s ease-in-out !important;
+    width: auto;
+    position: relative;
+  }
+  
+  .hero-section .custom-btn:hover {
+    background: linear-gradient(to top, #a752a1, #a752a1);
+    transform: translateY(-3px);
+  }
+  .hero-image {
+    will-change: transform, opacity; /* Improves animation performance */
+  }
+  
+  .custom-btn {
+    transition: transform 0.2s ease; /* For the hover/tap effects */
+  }
+ 
+  
+  .hero-section .btn-text {
+    flex-grow: 1;
+    text-align: left;
+  }
+  
+  /* Medium Devices (Tablets) */
+  @media (max-width: 992px) {
+    .hero-section {
+      padding: 40px 0;
+    }
+  
+    .hero-section h4 {
+      font-size: 4rem;
+    }
+  
+    .hero-section .display-4 {
+      font-size: 3.5rem !important;
+    }
+  
+    .hero-section .lead {
+      font-size: 16px;
+    }
+  
+    .hero-section .custom-btn {
+      font-size: 18px;
+      padding: 18px 20px;
+    }
+  }
+  
+  /* Small Devices (Phones) */
+  @media (max-width: 768px) {
+    .hero-section {
+      text-align: center;
+    }
+  
+    .hero-section h4 {
+      font-size: 3.5rem;
+    }
+  
+    .hero-section .display-4 {
+      font-size: 3rem !important;
+    }
+  
+    .hero-section .lead {
+      font-size: 15px;
+    }
+  
+    .hero-section .custom-btn {
+      font-size: 16px;
+      padding: 14px 18px;
+      display: block;
+      margin: 0 auto;
+      text-align: center;
+    }
+  
+    .hero-section .divider {
+      margin: 0 10px;
+    }
+  
+    .hero-section .btn-icon {
+      font-size: 18px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .hero-section h4 {
+      font-size: 3rem;
+    }
+  
+    .hero-section .display-4 {
+      font-size: 2.5rem !important;
+    }
+  
+    .hero-section .lead {
+      font-size: 14px;
+    }
+  
+    .hero-section .custom-btn {
+      font-size: 18px;
+      padding: 12px 16px;
+      width: 160px;
+    }
+  }
+  

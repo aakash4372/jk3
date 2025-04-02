@@ -1,0 +1,88 @@
+.whatwedo-section {
+    background-color: #f8d5ed63;
+    padding: 60px 0;
+    height: auto !important;
+  }
+  
+  /* New wrapper for falling text */
+  .falling-text-wrapper {
+    padding: 40px 0;
+  }
+  
+  /* Falling Text Animation */
+  .falling-text-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 0 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Remove underline from links */
+  .falling-text-link {
+    text-decoration: none !important;
+    color: inherit;
+    display: block;
+  }
+  
+  .falling-box {
+    color: black;
+    padding: 8px 12px;
+    border-radius: 30px;
+    margin: 5px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: var(--fontfamily3);
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .what-we-do-p {
+    background-color: red;
+    font-size: 14px !important;
+    color: white !important;
+    padding: 5px 20px;
+    display: inline-block;
+    font-family: var(--fontfamily3) !important;
+  }
+  
+  /* Responsive Image */
+  .whatwedo-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  /* Rest of your existing media queries... */
+  @media (max-width: 992px) {
+    .falling-box {
+      font-size: 1.2rem;
+      padding: 8px 15px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .falling-box {
+      font-size: 1rem;
+      padding: 6px 12px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .falling-box {
+      padding: 5px 5px;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 425px) {
+    .falling-box {
+      font-size: 0.9rem;
+      padding: 5px 8px;
+      border-radius: 20px;
+    }
+  }
