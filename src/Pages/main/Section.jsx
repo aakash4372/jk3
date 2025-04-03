@@ -1,12 +1,12 @@
 import React from 'react'
-import HeroSection from '../Home'
+import Homesection from '../Home'
 import Whatwedo from '../Whatwedo'
 import Herosection from '../Herosection'
 
 export default function Section() {
   return (
     <div>
-      <HeroSection/>
+      <Homesection/>
       <Whatwedo/>
       <Herosection/>
     </div>

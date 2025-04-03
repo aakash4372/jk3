@@ -1,12 +1,12 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min';
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [showNavLinks, setShowNavLinks] = useState(false);  
+  const [showNavLinks, setShowNavLinks] = useState(false);
 
   const toggleMobileNav = () => {
     setIsOpen(!isOpen);
@@ -25,8 +25,8 @@ const Navbar = () => {
       transition: {
         delay: i * 0.1,
         duration: 0.3,
-        ease: "easeOut"
-      }
+        ease: "easeOut",
+      },
     }),
     exit: (i) => ({
       opacity: 0,
@@ -34,16 +34,15 @@ const Navbar = () => {
       transition: {
         delay: (3 - i) * 0.05,
         duration: 0.2,
-        ease: "easeIn"
-      }
-    })
+        ease: "easeIn",
+      },
+    }),
   };
 
   const navLinks = [
     { path: "/", name: "Home" },
-    { path: "/about", name: "About" },
     { path: "/services", name: "Services" },
-    { path: "/contact", name: "Contact" }
+    { path: "/contact", name: "Contact" },
   ];
 
   return (
@@ -56,8 +55,7 @@ const Navbar = () => {
             left: 0;
             right: 0;
             z-index: 1030;
-            background-color: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            background-color: transparent !important;
           }
           
           .nav-link {
@@ -104,6 +102,7 @@ const Navbar = () => {
             font-size: 1.125rem;
             transition: all 0.3s ease;
             display: block;
+            color: white !important;
             padding: 0.5rem 0;
           }
           
@@ -114,14 +113,14 @@ const Navbar = () => {
 
           .offcanvas {
             transition: transform 0.3s ease-in-out;
-          }
-
-          .navbar-padding {
-            padding-top: 80px; /* To offset the fixed navbar */
-          }
+            background: rgba( 255, 255, 255, 0.15 ) !important;
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+            backdrop-filter: blur( 10px );
+            -webkit-backdrop-filter: blur( 3px );
+            }
         `}
       </style>
-      
+
       {/* Add padding to the body content to account for fixed navbar */}
       <div className="navbar-padding"></div>
 
@@ -148,10 +147,7 @@ const Navbar = () => {
                       exit="exit"
                       variants={navVariants}
                     >
-                      <Link 
-                        to={link.path} 
-                        className="nav-link"
-                      >
+                      <Link to={link.path} className="nav-link">
                         {link.name}
                       </Link>
                     </motion.div>
@@ -159,7 +155,7 @@ const Navbar = () => {
                 </>
               )}
             </AnimatePresence>
-            
+
             {/* Desktop toggle button - hidden on mobile */}
             <motion.button
               className="hidden md:block toggle-btn focus:outline-none ml-4"
@@ -232,7 +228,7 @@ const Navbar = () => {
 
       {/* Offcanvas navigation for mobile */}
       <div
-        className="offcanvas offcanvas-end fixed bottom-0 flex flex-col bg-white w-full max-w-xs shadow-lg"
+        className="offcanvas offcanvas-end fixed bottom-0 flex flex-col w-full max-w-xs shadow-lg"
         id="offcanvasNavbar"
         aria-labelledby="offcanvasNavbarLabel"
       >
@@ -240,9 +236,7 @@ const Navbar = () => {
           <h5
             className="offcanvas-title text-xl font-bold"
             id="offcanvasNavbarLabel"
-          >
-            Menu
-          </h5>
+          ></h5>
           <button
             type="button"
             className="btn-close text-reset"

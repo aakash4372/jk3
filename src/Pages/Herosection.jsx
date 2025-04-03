@@ -22,7 +22,7 @@ const Herosection = () => {
   return (
     <div className="section explore-section py-5 position-relative">
       <div className="container px-4">
-        <h2 className="text-center mb-5 fw-bold">Explore Us</h2>
+        <h2 className="text-center uppercase mb-5 fw-bold">Explore Us</h2>
         <div className="row d-flex align-items-center">
           <div className="col-12 col-md-6 mb-4 mb-md-0">
             <div className="ratio ratio-16x9" style={{ zIndex: "3" }}>
@@ -52,7 +52,7 @@ const Herosection = () => {
               unique and impactful strategies with your target audience. Our
               diverse skill sets enable us to design visually striking
               campaigns, engaging content, and memorable experiences that set
-              your brand apart in today's competitive market. <br /> <br /> We can take your brand to new heights and foster meaningful connections with your customers.
+              your brand apart in today's competitive market. We can take your brand to new heights and foster meaningful connections with your customers.
             </p>
           </div>
         </div>

@@ -4,6 +4,10 @@ import ResponsiveNavbar from "./Pages/Navbar";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import Section from "./Pages/main/Section";
+import Footer from "./Pages/footer";
+import Servicesection from "./Pages/Service";
+import ContactForm from "./Pages/Contactform";
+
 
 const App = () => {
   return (
@@ -11,9 +15,10 @@ const App = () => {
       <ResponsiveNavbar />
       <Routes>
         <Route path="/" element={<Section/>} />
-        <Route path="/services" element={<></>} />
-        <Route path="/contact" element={<></>} />
+        <Route path="/services" element={<Servicesection/>} />
+        <Route path="/contact" element={<ContactForm/>} />
       </Routes>
+      <Footer/>
     </Router>
   );
 };
