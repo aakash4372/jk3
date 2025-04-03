@@ -1,41 +1,65 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { Offcanvas } from "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showNavLinks, setShowNavLinks] = useState(false);
+  const [offcanvasInstance, setOffcanvasInstance] = useState(null);
+
+  useEffect(() => {
+    // Initialize Bootstrap Offcanvas
+    const offcanvasElement = document.getElementById("offcanvasNavbar");
+    if (offcanvasElement) {
+      const bsOffcanvas = new Offcanvas(offcanvasElement);
+      setOffcanvasInstance(bsOffcanvas);
+
+      // Event listeners for offcanvas
+      offcanvasElement.addEventListener('hidden.bs.offcanvas', () => {
+        setIsOpen(false);
+      });
+      offcanvasElement.addEventListener('show.bs.offcanvas', () => {
+        setIsOpen(true);
+      });
+
+      return () => {
+        offcanvasElement.removeEventListener('hidden.bs.offcanvas', () => {});
+        offcanvasElement.removeEventListener('show.bs.offcanvas', () => {});
+      };
+    }
+  }, []);
 
   const toggleMobileNav = () => {
-    setIsOpen(!isOpen);
+    if (offcanvasInstance) {
+      isOpen ? offcanvasInstance.hide() : offcanvasInstance.show();
+    }
+  };
+
+  const closeOffcanvas = () => {
+    if (offcanvasInstance) {
+      offcanvasInstance.hide();
+    }
   };
 
   const toggleNavLinks = () => {
     setShowNavLinks(!showNavLinks);
   };
 
-  // Animation variants for the nav links
+  // Animation variants
   const navVariants = {
     hidden: { opacity: 0, x: 20 },
     visible: (i) => ({
       opacity: 1,
       x: 0,
-      transition: {
-        delay: i * 0.1,
-        duration: 0.3,
-        ease: "easeOut",
-      },
+      transition: { delay: i * 0.1, duration: 0.3, ease: "easeOut" },
     }),
     exit: (i) => ({
       opacity: 0,
       x: 20,
-      transition: {
-        delay: (3 - i) * 0.05,
-        duration: 0.2,
-        ease: "easeIn",
-      },
+      transition: { delay: (3 - i) * 0.05, duration: 0.2, ease: "easeIn" },
     }),
   };
 
@@ -91,6 +115,7 @@ const Navbar = () => {
             background: none;
             border: none;
             padding: 0.5rem;
+            z-index: 1050;
           }
           
           .toggle-btn:hover {
@@ -107,146 +132,99 @@ const Navbar = () => {
           }
           
           .offcanvas-link:hover {
-            color: #6b46c1 !important;
+            color: white !important;
             transform: translateX(5px);
           }
 
-          .offcanvas {
-            transition: transform 0.3s ease-in-out;
+         .offcanvas {
             background: rgba( 255, 255, 255, 0.15 ) !important;
             box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
             backdrop-filter: blur( 10px );
             -webkit-backdrop-filter: blur( 3px );
-            }
+          }
+
+          .btn-close {
+            filter: invert(1);
+          }
         `}
       </style>
 
-      {/* Add padding to the body content to account for fixed navbar */}
-      <div className="navbar-padding"></div>
-
       <div className="navbar-container">
-        <nav className=" p-4 flex justify-between items-center">
-          {/* Logo on the left */}
+        <nav className="p-4 flex justify-between items-center">
+          {/* Logo */}
           <div className="flex items-center">
             <Link to="/" className="text-xl font-bold">
               <img src="/img/logo.png" alt="Company Logo" className="h-12" />
             </Link>
           </div>
 
-          {/* Desktop navigation links - hidden on mobile */}
+          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-20">
             <AnimatePresence>
-              {showNavLinks && (
-                <>
-                  {navLinks.map((link, i) => (
-                    <motion.div
-                      key={link.path}
-                      custom={i}
-                      initial="hidden"
-                      animate="visible"
-                      exit="exit"
-                      variants={navVariants}
-                    >
-                      <Link to={link.path} className="nav-link">
-                        {link.name}
-                      </Link>
-                    </motion.div>
-                  ))}
-                </>
-              )}
+              {showNavLinks && navLinks.map((link, i) => (
+                <motion.div
+                  key={link.path}
+                  custom={i}
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+                  variants={navVariants}
+                >
+                  <Link to={link.path} className="nav-link">
+                    {link.name}
+                  </Link>
+                </motion.div>
+              ))}
             </AnimatePresence>
 
-            {/* Desktop toggle button - hidden on mobile */}
             <motion.button
               className="hidden md:block toggle-btn focus:outline-none ml-4"
               onClick={toggleNavLinks}
               aria-label="Toggle navigation"
               whileTap={{ scale: 0.95 }}
             >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {showNavLinks ? (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 ) : (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                 )}
               </svg>
             </motion.button>
           </div>
 
-          {/* Mobile toggle button - visible only on mobile */}
+          {/* Mobile Toggle Button */}
           <motion.button
             className="md:hidden toggle-btn focus:outline-none"
             onClick={toggleMobileNav}
             type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasNavbar"
-            aria-controls="offcanvasNavbar"
+            aria-label="Toggle navigation"
             whileTap={{ scale: 0.9 }}
           >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {isOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               )}
             </svg>
           </motion.button>
         </nav>
       </div>
 
-      {/* Offcanvas navigation for mobile */}
-      <div
-        className="offcanvas offcanvas-end fixed bottom-0 flex flex-col w-full max-w-xs shadow-lg"
-        id="offcanvasNavbar"
-        aria-labelledby="offcanvasNavbarLabel"
-      >
-        <div className="offcanvas-header flex items-center justify-between p-4 border-b">
-          <h5
-            className="offcanvas-title text-xl font-bold"
-            id="offcanvasNavbarLabel"
-          ></h5>
+      {/* Offcanvas Menu */}
+      <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div className="offcanvas-header">
+          <h5 className="offcanvas-title" id="offcanvasNavbarLabel"></h5>
           <button
             type="button"
-            className="btn-close text-reset"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close"
+            className="btn-close"
             onClick={toggleMobileNav}
+            aria-label="Close"
           ></button>
         </div>
-        <div className="offcanvas-body p-4">
-          <div className="flex flex-col space-y-4">
+        <div className="offcanvas-body">
+          <div className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <motion.div
                 key={link.path}
@@ -255,9 +233,8 @@ const Navbar = () => {
               >
                 <Link
                   to={link.path}
-                  className="offcanvas-link nav-link py-2 block"
-                  onClick={toggleMobileNav}
-                  data-bs-dismiss="offcanvas"
+                  className="offcanvas-link no-underline"
+                  onClick={closeOffcanvas}
                 >
                   {link.name}
                 </Link>

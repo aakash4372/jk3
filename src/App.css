@@ -1,0 +1,21 @@
+html {
+    scroll-margin-top: 100px; /* Adjust based on your navbar height */
+    scroll-behavior: smooth;
+  }
+
+/* Scrollbar Track */
+::-webkit-scrollbar {
+    width: 10px; /* Adjust width as needed */
+  }
+  
+  /* Scrollbar Handle */
+  ::-webkit-scrollbar-thumb {
+    background-color: #6b137a9d;
+    border-radius: 5px;
+  }
+  
+  /* Scrollbar Track (Background) */
+  ::-webkit-scrollbar-track {
+    background: #f0f0f0; /* Light background */
+  }
+  

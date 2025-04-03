@@ -42,7 +42,7 @@ const FallingText = ({ words = [], highlightClass = "highlighted" }) => {
   };
 
   return (
-    <div ref={ref} className="falling-text-container">
+    <div ref={ref} className="falling-text-container" id="whatwedo">
       {words.map((word, index) => (
         <motion.div
           key={index}

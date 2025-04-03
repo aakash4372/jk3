@@ -114,7 +114,7 @@ const HeroSection = () => {
         }}
       />
 
-      <div className="hero-section" ref={heroRef}>
+      <div className="hero-section" ref={heroRef}  id="home">
         <div className="container py-24" style={{ zIndex: 2 }}>
           <div className="row align-items-center">
             {/* Image Section */}

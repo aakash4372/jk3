@@ -23,9 +23,9 @@ export default function Footer() {
           <div>
             <ul className="space-y-2 text-left">
               <h3 className="text-lg font-semibold text-left uppercase mb-4">Useful Links</h3>
-              <li><Link to="/#home" className="text-white no-underline">Home</Link></li>
-              <li><Link to="/#whatwedo" className="text-white no-underline">What we do</Link></li>
-              <li><Link to="/#explore" className="text-white no-underline">Explore Us</Link></li>
+              <li><a href="/#home" className="text-white no-underline">Home</a></li>
+              <li><a href="/#explore" className="text-white no-underline">Explore Us</a></li>
+
             </ul>
           </div>
 

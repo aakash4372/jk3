@@ -20,7 +20,7 @@ const Herosection = () => {
   }, [videoEnded]);
 
   return (
-    <div className="section explore-section py-5 position-relative">
+    <div className="section explore-section py-5 position-relative" id="explore">
       <div className="container px-4">
         <h2 className="text-center uppercase mb-5 fw-bold">Explore Us</h2>
         <div className="row d-flex align-items-center">
