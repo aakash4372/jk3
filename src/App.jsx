@@ -4,7 +4,7 @@ import ResponsiveNavbar from "./Pages/Navbar";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import Section from "./Pages/main/Section";
-import Footer from "./Pages/footer";
+import Footer from "./Pages/Footer";
 import Servicesection from "./Pages/Service";
 import ContactForm from "./Pages/Contactform";
 
