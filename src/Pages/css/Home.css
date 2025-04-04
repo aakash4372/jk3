@@ -30,7 +30,7 @@
 }
 
 .hero-section h4 {
-  font-size: 5rem;
+  font-size: 5.5rem;
   font-weight: 700;
   font-family: var(--fontfamily4);
   color: #3e495b;
@@ -38,7 +38,7 @@
 }
 
 .hero-section .display-4 {
-  font-size: 4.5rem !important;
+  font-size: 5rem !important;
   font-weight: 800;
   background: linear-gradient(90deg, #9a4a9c, #c04499);
   background-clip: text;
@@ -97,7 +97,7 @@
 }
 
 .hero-section .custom-btn:hover {
-  transform: translateY(-3px) scale(1.02);
+  transform: translateY(-1px) scale(1);
   box-shadow: 0 8px 25px rgba(167, 82, 161, 0.4),
               0 4px 10px rgba(167, 82, 161, 0.3);
 }

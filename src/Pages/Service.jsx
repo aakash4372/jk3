@@ -7,6 +7,7 @@ import websiteDevelopment from "/img/WEBSITE CREATION.jpg";
 import "./css/service.css";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { useLocation } from "react-router-dom";
 
 // Import your video files
 import graphicDesignVideo from "/img/GRAPHIC DESINING1.mp4";
@@ -18,6 +19,7 @@ import websiteDevelopmentVideo from "/img/WEBSITE CREATION1.mp4";
 const Servicesection = () => {
   const [showMagazineDesc, setShowMagazineDesc] = useState(true); // Set to true by default
   const [hoveredVideo, setHoveredVideo] = useState(null);
+  const location = useLocation();
 
   useEffect(() => {
     AOS.init({
@@ -27,12 +29,21 @@ const Servicesection = () => {
     });
   }, []);
 
+  useEffect(() => {
+    if (location.hash === "#services") {
+      const element = document.getElementById("services");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
+
   const toggleMagazineDesc = () => {
     setShowMagazineDesc(!showMagazineDesc);
   };
 
   return (
-    <div className="service-section">
+    <div className="service-section" id="services">
       <div className="pt-20">
         {/* Graphic Design Section */}
         <div className="graphic-design-container">

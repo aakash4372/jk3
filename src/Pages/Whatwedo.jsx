@@ -7,11 +7,11 @@ import "./css/whatwedo.css";
 const colors = [
   "#f3c571", // Light Pink
   "#c4c3fb", // Soft Green
-  "#F6D6AD", // Light Orange
+  "#f3c571", // Light Orange
   "#ffc0be", // Soft Red
   "#A2D2FF", // Mild Blue
   "#B5EAD7", // Pastel Green
-  "#FFDAC1", // Light Peach
+  "#f3c571", // Light Peach
 ];
 
 const FallingText = ({ words = [], highlightClass = "highlighted" }) => {
@@ -139,18 +139,18 @@ const Whatwedo = () => {
               WHAT WE DO
             </motion.p>
             <motion.h4
-              className="fw-bold display-3 text-[#3e495b] uppercase animated-text"
+              className="fw-bold display-3 text-[#3e495b] animated-text"
               variants={textVariants}
               whileHover={{ x: 10 }}
             >
-              Your next big
+              Your Next Big
             </motion.h4>
             <motion.h4
-              className="fw-bold display-4 uppercase text-[#3e495b] animated-text"
+              className="fw-bold display-4 text-[#3e495b] animated-text"
               variants={textVariants}
               whileHover={{ x: -10 }}
             >
-              move begins now
+              Move Begins Now
             </motion.h4>
             <motion.p
               className="lead mb-4 animated-text pt-2"

@@ -154,7 +154,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex items-center">
             <Link to="/" className="text-xl font-bold">
-              <img src="/img/logo.png" alt="Company Logo" className="h-12" />
+              <img src="/img/logo.png" alt="Company Logo" className="h-14" />
             </Link>
           </div>
 

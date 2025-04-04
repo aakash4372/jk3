@@ -1,64 +1,74 @@
-import React, { useState, useRef, useEffect } from "react";
-import "./css/herosection.css";
+import React, { useState, useEffect, useRef } from "react";
+import './css/herosection.css';
 
-const Herosection = () => {
-  const [videoEnded, setVideoEnded] = useState(false);
-  const videoRef = useRef(null);
-
-  const handleVideoEnd = () => {
-    setVideoEnded(true);
-  };
+const ExploreUs = () => {
+  const [showVideo, setShowVideo] = useState(false);
+  const sectionRef = useRef(null);
+  const timeoutRef = useRef(null);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      if (!videoEnded && videoRef.current) {
-        setVideoEnded(true);
-      }
-    }, 30000);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          timeoutRef.current = setTimeout(() => {
+            setShowVideo(true);
+          }, 1000); // 2.5s delay
+        } else {
+          clearTimeout(timeoutRef.current);
+          setShowVideo(false);
+        }
+      },
+      { threshold: 0.5 } // Video plays when 50% of the section is visible
+    );
 
-    return () => clearTimeout(timer);
-  }, [videoEnded]);
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+      clearTimeout(timeoutRef.current);
+    };
+  }, []);
 
   return (
-    <div className="section explore-section py-5 position-relative" id="explore">
-      <div className="container px-4">
-        <h2 className="text-center uppercase mb-5 fw-bold">Explore Us</h2>
-        <div className="row d-flex align-items-center">
-          <div className="col-12 col-md-6 mb-4 mb-md-0">
-            <div className="ratio ratio-16x9" style={{ zIndex: "3" }}>
-              {!videoEnded ? (
-                <video
-                  ref={videoRef}
-                  autoPlay
-                  muted
-                  onEnded={handleVideoEnd}
-                  className="w-100 h-100 object-fit-cover rounded"
-                >
-                  <source src="/img/explore.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              ) : (
-                <img
-                  src="/img/explore.png"
-                  alt="Explore Us"
-                  className="w-100 h-100 object-fit-cover rounded"
-                />
-              )}
-            </div>
-          </div>
-          <div className="col-12 col-md-6">
-            <p className="lead">
-              With a deep passion for creativity, we specialize in developing
-              unique and impactful strategies with your target audience. Our
-              diverse skill sets enable us to design visually striking
-              campaigns, engaging content, and memorable experiences that set
-              your brand apart in today's competitive market. We can take your brand to new heights and foster meaningful connections with your customers.
-            </p>
-          </div>
-        </div>
+    <div ref={sectionRef} className="explore-us-container">
+    {/* Decorative elements */}
+    <div className="explore-us-decoration decoration-1"></div>
+    <div className="explore-us-decoration decoration-2"></div>
+    
+    <div className="explore-us-content">
+      <h1 className={`explore-us-heading ${showVideo ? 'fade-in' : ''}`}>Explore Us</h1>
+  
+      <div className="explore-us-media-container">
+        {showVideo ? (
+          <video
+            src="/img/explore.mp4"
+            autoPlay
+            loop
+            muted
+            className="explore-us-video fade-in"
+          />
+        ) : (
+          <img
+            src="/img/explore.png"
+            alt="Creative and More"
+            className="explore-us-image"
+          />
+        )}
       </div>
+  
+      <p className={`explore-us-description ${showVideo ? 'fade-in' : ''}`}>
+        With a deep passion for creativity, we specialize in developing unique and impactful strategies 
+        with your target audience. Our diverse skill sets enable us to design visually striking campaigns, 
+        engaging content, and memorable experiences that set your brand apart in today's competitive market. 
+        We can take your brand to new heights and foster meaningful connections with your customers.
+      </p>
     </div>
+  </div>
   );
 };
 
-export default Herosection;
+export default ExploreUs;

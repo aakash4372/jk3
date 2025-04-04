@@ -8,13 +8,14 @@ import Footer from "./Pages/Footer";
 import Servicesection from "./Pages/Service";
 import ContactForm from "./Pages/Contactform";
 import Cursor from "./Pages/Cursor";
+import BackToTop from "./Pages/BackToTop"; // 👈 import here
 import "./App.css";
 
 const App = () => {
   return (
     <Router>
-      <ScrollToTop /> 
-      <Cursor/>
+      <ScrollToTop />
+      <Cursor />
       <ResponsiveNavbar />
       <Routes>
         <Route path="/" element={<Section />} />
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/contact" element={<ContactForm />} />
       </Routes>
       <Footer />
+      <BackToTop /> 
     </Router>
   );
 };

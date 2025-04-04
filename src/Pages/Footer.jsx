@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import './css/Footer.css';
-import { Mail, Phone, MapPin, Instagram, Facebook, Youtube } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 export default function Footer() {
   return (
     <footer className="bg-gray-900 z-50 text-white" id="contact">
@@ -29,23 +29,24 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Our Works - Services */}
-          <div>
-            <ul className="space-y-2 text-left">
-              <h3 className="text-lg font-semibold uppercase text-left mb-4">Our Works</h3>
-              {[
-                "GRAPHIC DESIGNING", "VIDEO EDITING", "MOTION GRAPHIC",
-                "DIGITAL MARKETING", "MAGAZINE DESIGNING",
-                "WEBSITE DEVELOPMENT", "BRANDING"
-              ].map((work, index) => (
-                <li key={index}>
-                  <Link to="/services" className="text-white no-underline">
-                    {work.toLowerCase().replace(/\b\w/g, (char) => char.toUpperCase())}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+        {/* Our Works - Services */}
+        <div>
+          <ul className="space-y-2 text-left">
+            <h3 className="text-lg font-semibold uppercase text-left mb-4">Our Works</h3>
+            {[
+              "GRAPHIC DESIGNING", "VIDEO EDITING", "MOTION GRAPHIC",
+              "DIGITAL MARKETING", "MAGAZINE DESIGNING",
+              "WEBSITE DEVELOPMENT", "BRANDING"
+            ].map((work, index) => (
+              <li key={index}>
+                <Link to="/services#services" className="text-white no-underline">
+          {work.toLowerCase().replace(/\b\w/g, (char) => char.toUpperCase())}
+        </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
 
           {/* Contact Information */}
           <div>

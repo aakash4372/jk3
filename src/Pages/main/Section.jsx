@@ -2,6 +2,7 @@ import React from 'react'
 import Homesection from '../Home'
 import Whatwedo from '../Whatwedo'
 import Herosection from '../Herosection'
+import TeamSection from '../meettheteam'
 
 export default function Section() {
   return (
@@ -9,6 +10,8 @@ export default function Section() {
       <Homesection/>
       <Whatwedo/>
       <Herosection/>
+      <TeamSection/>
+
     </div>
   )
 }
