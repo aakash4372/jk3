@@ -4,7 +4,19 @@ import './css/Footer.css';
 import { Mail, Phone, MapPin } from "lucide-react";
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 z-50 text-white" id="contact">
+    <footer className="z-50 text-white" style={{ background: 'linear-gradient(to right, #170732, #5b2885)' }} id="contact">
+
+      {/* Enquiry Button */}
+<div className="flex justify-center pt-5">
+  <Link
+    to="/contact"
+    className="relative px-8 py-3 no-underline font-semibold text-white rounded-full bg-gradient-to-r from-pink-500 to-purple-600 shadow-lg hover:shadow-pink-500/50 transition-transform duration-300 hover:scale-105 animate-pulse overflow-hidden"
+  >
+    <span className="absolute top-0 left-0 w-full h-full bg-white opacity-10 animate-moveX"></span>
+    Enquiry
+  </Link>
+</div>
+
       {/* Footer Top */}
       <div className="py-10">
         <div className="container grid md:grid-cols-4 gap-8">
@@ -96,7 +108,7 @@ export default function Footer() {
       </div>
 
       {/* Footer Bottom */}
-      <div className="bg-gray-800 text-center py-4 text-sm">
+      <div className="bg-gray-800 text-center py-4 text-sm" style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
         &copy; {new Date().getFullYear()} <a href="https://bmtechx.in/" target="_blank" rel="noopener noreferrer" className="text-white no-underline">BMTECHx.in</a> All Rights Reserved
       </div>
     </footer>

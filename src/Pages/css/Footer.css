@@ -1,6 +1,18 @@
 footer {
     position: relative;
     z-index: 50; /* Ensures footer is above particles */
-    background-color: rgba(0, 0, 0, 0.9); /* Ensure visibility */
+  }
+  
+  @keyframes moveX {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  .animate-moveX {
+    animation: moveX 2s linear infinite;
   }
   
