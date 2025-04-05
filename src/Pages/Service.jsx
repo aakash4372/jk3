@@ -165,7 +165,8 @@ const Servicesection = () => {
                 "Letterhead & Stationery Design",
                 "Flyer & Brochure Design",
                 "Poster & Banner Design",
-                "Advertisement Design"
+                "Advertisement Design",
+                "Magazine"
               ].map((service, index) => (
                 <li
                   key={index}
