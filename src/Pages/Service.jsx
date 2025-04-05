@@ -12,7 +12,7 @@ import { useLocation } from "react-router-dom";
 // Import your video files
 import graphicDesignVideo from "/img/GRAPHIC DESINING1.mp4";
 import videoEditingVideo from "/img/VIDEO EDITING SERVICE.mp4";
-import vrVideosVideo from "/img/VIDEO EDITING SERVICE.mp4";
+import vrVideosVideo from "/img/VR 360 service.mp4";
 import digitalMarketingVideo from "/img/DIGITAL MARKETING VIDEO.mp4";
 import websiteDevelopmentVideo from "/img/WEBSITE CREATION1.mp4";
 
