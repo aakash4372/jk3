@@ -34,7 +34,7 @@ const ExploreUs = () => {
   }, []);
 
   return (
-    <div ref={sectionRef} className="explore-us-container">
+    <div ref={sectionRef} className="explore-us-container bg-[#F4f3fb]" >
     {/* Decorative elements */}
     <div className="explore-us-decoration decoration-1"></div>
     <div className="explore-us-decoration decoration-2"></div>

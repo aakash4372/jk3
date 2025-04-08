@@ -21,7 +21,6 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: var(--bg-light);
   padding: 4rem 2rem;
   position: relative;
   overflow: hidden;

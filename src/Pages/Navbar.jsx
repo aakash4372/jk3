@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Offcanvas } from "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -9,6 +9,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showNavLinks, setShowNavLinks] = useState(false);
   const [offcanvasInstance, setOffcanvasInstance] = useState(null);
+  const location = useLocation();
 
   useEffect(() => {
     // Initialize Bootstrap Offcanvas
@@ -31,6 +32,15 @@ const Navbar = () => {
       };
     }
   }, []);
+
+  useEffect(() => {
+    if (location.hash === '#contact') {
+      const contactElement = document.getElementById('contact');
+      if (contactElement) {
+        contactElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location]);
 
   const toggleMobileNav = () => {
     if (offcanvasInstance) {
@@ -66,8 +76,8 @@ const Navbar = () => {
   const navLinks = [
     { path: "/", name: "Home" },
     { path: "/services", name: "Services" },
-    { path: "/contact", name: "Enquiry" },
-    { path: "/contact", name: "Contact" },
+    { path: "/equiry", name: "Enquiry" },
+    { path: "#contact", name: "Contact" },
   ];
 
   return (
@@ -137,15 +147,19 @@ const Navbar = () => {
             transform: translateX(5px);
           }
 
-         .offcanvas {
-            background: rgba( 255, 255, 255, 0.15 ) !important;
-            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-            backdrop-filter: blur( 10px );
-            -webkit-backdrop-filter: blur( 3px );
+          .offcanvas {
+            background: rgba(255, 255, 255, 0.15) !important;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(3px);
           }
 
           .btn-close {
             filter: invert(1);
+          }
+
+          html {
+            scroll-behavior: smooth;
           }
         `}
       </style>
@@ -171,9 +185,15 @@ const Navbar = () => {
                   exit="exit"
                   variants={navVariants}
                 >
-                  <Link to={link.path} className="nav-link">
-                    {link.name}
-                  </Link>
+                  {link.path.startsWith('#') ? (
+                    <a href={link.path} className="nav-link">
+                      {link.name}
+                    </a>
+                  ) : (
+                    <Link to={link.path} className="nav-link">
+                      {link.name}
+                    </Link>
+                  )}
                 </motion.div>
               ))}
             </AnimatePresence>
@@ -232,13 +252,23 @@ const Navbar = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Link
-                  to={link.path}
-                  className="offcanvas-link no-underline"
-                  onClick={closeOffcanvas}
-                >
-                  {link.name}
-                </Link>
+                {link.path.startsWith('#') ? (
+                  <a
+                    href={link.path}
+                    className="offcanvas-link no-underline"
+                    onClick={closeOffcanvas}
+                  >
+                    {link.name}
+                  </a>
+                ) : (
+                  <Link
+                    to={link.path}
+                    className="offcanvas-link no-underline"
+                    onClick={closeOffcanvas}
+                  >
+                    {link.name}
+                  </Link>
+                )}
               </motion.div>
             ))}
           </div>
