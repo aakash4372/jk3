@@ -9,12 +9,89 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useLocation } from "react-router-dom";
 
+// React Icons
+import { 
+  FaPenFancy, 
+  FaVideo, 
+  FaVrCardboard, 
+  FaBullhorn, 
+  FaCode,
+  FaPhotoVideo,
+  FaFilm,
+  FaAd,
+  FaPodcast,
+  FaMobile,
+  FaLaptopCode,
+  FaPaintBrush,
+  FaPenNib,
+  FaBusinessTime,
+  FaNewspaper,
+  FaTshirt,
+  FaBoxOpen,
+  FaChartBar,
+  FaFacebook,
+  FaGoogle
+} from "react-icons/fa";
+import { 
+  MdWeb, 
+  MdDesignServices, 
+  MdEdit, 
+  Md360, 
+  MdTrendingUp,
+  MdOutlineAnimation,
+  MdOutlineFeaturedVideo,
+  MdOutlineVideoSettings,
+  MdBusiness,
+  MdEmail,
+  MdLocalOffer,
+  MdStore,
+  MdArticle
+} from "react-icons/md";
+
 // Import your video files
 import graphicDesignVideo from "/img/GRAPHIC DESINING1.mp4";
 import videoEditingVideo from "/img/VIDEO EDITING SERVICE.mp4";
 import vrVideosVideo from "/img/VR 360 service.mp4";
 import digitalMarketingVideo from "/img/DIGITAL MARKETING VIDEO.mp4";
 import websiteDevelopmentVideo from "/img/WEBSITE CREATION1.mp4";
+
+// Icon mapping
+const serviceIcons = {
+  // // Category icons
+  // graphicDesign: <MdDesignServices />,
+  // videoEditing: <GiVideoCamera />,
+  // vrVideos: <Md360 />,
+  // digitalMarketing: <GiCommercialBoat />,
+  // websiteDevelopment: <FaLaptopCode />,
+  
+  // Specific service item icons
+  "Logo Design": <FaPenNib />,
+  "Brand Identity & Style Guide": <FaPaintBrush />,
+  "Business Card Design": <MdBusiness />,
+  "Letterhead & Stationery Design": <MdEmail />,
+  "Flyer & Brochure Design": <MdArticle />,
+  "Poster & Banner Design": <FaAd />,
+  "Advertisement Design": <MdLocalOffer />,
+  "Magazine": <FaNewspaper />,
+  "Social Media Video Ads": <FaFacebook />,
+  "Explainer Videos": <MdOutlineFeaturedVideo />,
+  "Motion Graphic": <MdOutlineAnimation />,
+  "Reels": <MdOutlineVideoSettings />,
+  "Product Promo Videos": <MdStore />,
+  "YouTube Video Editing": <FaFilm />,
+  "Event Videos": <FaPhotoVideo />,
+  "Typography": <FaPenFancy />,
+  "Testimonial Videos": <FaVideo />,
+  "Logo Animation": <MdOutlineAnimation />,
+  "Video": <FaVideo />,
+  "Photos": <FaPhotoVideo />,
+  "Google ads": <FaGoogle />,
+  "Meta ads": <FaFacebook />,
+  "Custom Website Development": <FaCode />,
+  "Mobile-Friendly (Responsive) Website": <FaMobile />,
+  "Website Maintenance & Updates": <MdWeb />,
+  "Website Redesign & Improvement": <FaLaptopCode />
+};
 
 const Servicesection = () => {
   const [activeVideos, setActiveVideos] = useState({
@@ -115,11 +192,10 @@ const Servicesection = () => {
   const services = [
     {
       id: "graphicDesign",
-      title: "GRAPHIC DESIGN",
+      title: "Graphic Design",
       image: Graphic,
       video: graphicDesignVideo,
       description: "Graphic design is the art of visual communication that combines typography, images, colors, and layouts for branding and marketing. We provide logo design, social media graphics, brochures, and flyers to strengthen brand identity. Our services include magazine layouts, packaging design, infographics, and promotional materials like thumbnails and posters, helping businesses establish a strong visual presence.",
-      tagline: "Your brand's voice, made visible",
       items: [
         "Logo Design",
         "Brand Identity & Style Guide",
@@ -134,11 +210,10 @@ const Servicesection = () => {
     },
     {
       id: "videoEditing",
-      title: "VIDEO EDITING",
+      title: "Video Editing",
       image: Video,
       video: videoEditingVideo,
       description: "We create documentaries that tell important stories and cover various subjects. Our services include profile videos highlighting individual achievements, engaging reels for creative work or events, insightful podcasts with engaged discussions, professional interview services for authentic perspectives, and impactful advertisements to promote brands and products effectively.",
-      tagline: "Let's create visuals that speak louder than words.",
       items: [
         "Social Media Video Ads",
         "Explainer Videos",
@@ -155,31 +230,28 @@ const Servicesection = () => {
     },
     {
       id: "vrVideos",
-      title: "VIRTUAL REALITY (VR) VIDEOS",
+      title: "Virtual Reality (VR) Videos",
       image: vrvideo,
       video: vrVideosVideo,
       description: "Virtual Reality (VR) videos offer an engaging experience that engages viewers in a 360-degree environment. Unlike traditional videos, VR allows users to explore their surroundings freely, creating a genuine sense of presence.",
-      tagline: "See the world in 360°",
       items: ["Video", "Photos"],
       align: "left"
     },
     {
       id: "digitalMarketing",
-      title: "DIGITAL MARKETING",
+      title: "Digital Marketing",
       image: digitalMarketing,
       video: digitalMarketingVideo,
-      description: "Digital marketing involves promoting products, services, or brands through online platforms such as social media, search engines, websites, and email. It encompasses strategies like search engine optimization (SEO), content marketing, social media marketing ( YouTube, Facebook , Instagram ), and paid advertising to engage target audiences, enhance brand awareness, and drive conversions. With data-driven insights and real-time interaction, digital marketing enables businesses to flourish in the constantly evolving online landscape.",
-      tagline: "See the world in 360°",
+      description: "Digital marketing involves promoting products, services, or brands through online platforms such as social media, search engines, websites, and email. It encompasses strategies like search engine optimization (SEO), content marketing, social media marketing ( YouTube, Facebook , Instagram ), and paid advertising to engage target audiences, enhance brand awareness, and drive conversions.",
       items: ["Google ads", "Meta ads"],
       align: "right"
     },
     {
       id: "websiteDevelopment",
-      title: "WEBSITE DEVELOPMENT",
+      title: "Website Development",
       image: websiteDevelopment,
       video: websiteDevelopmentVideo,
-      description: "We provide website development services to help businesses build a strong online presence. Our expertise includes creating responsive and user-friendly websites for various purposes, such as e-commerce, portfolios, custom applications, etc .. Our services cover UI/UX design, front-end and back-end development, SEO optimization, and website maintenance. We ensure your site is visually appealing, functional, secure, and optimized for search engines, enhancing user engagement and promoting business growth.",
-      tagline: "We don't just create websites; we craft digital masterpieces that function around the clock for your brand.",
+      description: "We provide website development services to help businesses build a strong online presence. Our expertise includes creating responsive and user-friendly websites for various purposes, such as e-commerce, portfolios, custom applications, etc. Our services cover UI/UX design, front-end and back-end development, SEO optimization, and website maintenance.",
       items: [
         "Custom Website Development",
         "Mobile-Friendly (Responsive) Website",
@@ -201,10 +273,6 @@ const Servicesection = () => {
             data-aos="fade-up"
             data-aos-delay={index % 2 === 0 ? 100 : 200}
           >
-            <h1 className="section-title">
-              <span className="title-gradient">{service.title}</span>
-            </h1>
-
             <div className="service-content-wrapper">
               <div className={`media-container ${service.align}`}>
                 <div className="full-width-image" data-aos="zoom-in">
@@ -230,13 +298,10 @@ const Servicesection = () => {
 
               <div className={`text-container ${service.align}`}>
                 <div className="content-card" data-aos="fade-up" data-aos-delay="200">
+                  <h1 className="section-title">
+                    <span className="title-gradient">{service.title}</span>
+                  </h1>
                   <p className="description-text">{service.description}</p>
-
-                  <div className="tagline-container" data-aos="fade-up" data-aos-delay="300">
-                    <div className="decorative-line"></div>
-                    <p className="tagline">"{service.tagline}"</p>
-                    <div className="decorative-line"></div>
-                  </div>
 
                   <ul className="services-list">
                     {service.items.map((item, itemIndex) => (
@@ -246,8 +311,8 @@ const Servicesection = () => {
                         data-aos="fade-up"
                         data-aos-delay={300 + (itemIndex * 50)}
                       >
-                        <span className="bullet-point">
-                          <span className="bullet-inner"></span>
+                        <span className="service-icon">
+                          {serviceIcons[item] || serviceIcons[service.id]}
                         </span>
                         <span className="service-text">{item}</span>
                       </li>

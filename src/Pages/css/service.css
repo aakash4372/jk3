@@ -47,24 +47,11 @@
 
 /* Title Styles with Gradient */
 .section-title {
-  font-size: clamp(1.75rem, 5vw, 3rem);
+  font-size: clamp(1.75rem, 5vw, 3.3rem);
   font-weight: 800;
-  text-align: center;
+  text-align: start;
   margin-bottom: 3rem;
   position: relative;
-  padding-bottom: 1rem;
-}
-
-.section-title::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 4px;
-  background: linear-gradient(90deg, #994a9c, #c04499c0);
-  border-radius: 2px;
 }
 
 .title-gradient {
@@ -72,7 +59,6 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  text-transform: uppercase;
 }
 
 /* Image and Video Container Styles */
@@ -115,7 +101,6 @@
   backdrop-filter: blur(10px);
 }
 
-
 .description-text {
   font-size: clamp(1rem, 2vw, 1.125rem);
   color: #23272c;
@@ -123,31 +108,6 @@
   font-family: var(--fontfamily3);
   line-height: 1.7;
   text-align: justify;
-}
-
-/* Tagline Styles */
-.tagline-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 2rem 0;
-}
-
-.decorative-line {
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, #994a9c, transparent);
-  margin: 0 1rem;
-}
-
-.tagline {
-  font-size: clamp(1.1rem, 2vw, 1.4rem);
-  font-style: italic;
-  font-weight: 600;
-  font-family: var(--fontfamily3);
-  color: #994a9c;
-  text-align: center;
-  margin: 0 1rem;
 }
 
 /* Services List Styles */
@@ -171,40 +131,25 @@
   transform: translateX(5px);
 }
 
-.service-item.active {
-  background-color: #f3e8ff;
-  border-left: 3px solid #7c3aed;
-}
-
-.bullet-point {
+.service-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
+  width: 36px;
+  height: 36px;
   margin-right: 1rem;
-  background-color: #e9d5ff;
-  border-radius: 50%;
+  background-color: #f3e8ff;
+  border-radius: 8px;
   flex-shrink: 0;
+  color: #a7489b;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
 }
 
-.bullet-inner {
-  width: 12px;
-  height: 12px;
+.service-item:hover .service-icon {
   background-color: #a7489b;
-  border-radius: 50%;
-  animation: pulse-bullet-inner 2s infinite ease-in-out;
-}
-
-@keyframes pulse-bullet-inner {
-  0%, 100% {
-    transform: scale(1);
-    background-color: #a7489b;
-  }
-  50% {
-    transform: scale(0.9);
-    background-color: #ba7ef2;
-  }
+  color: white;
+  transform: rotate(5deg) scale(1.1);
 }
 
 .service-text {
@@ -236,15 +181,6 @@
   .services-list {
     grid-template-columns: 1fr;
   }
-  
-  .tagline-container {
-    flex-direction: column;
-  }
-  
-  .decorative-line {
-    width: 100%;
-    margin: 0.5rem 0;
-  }
 }
 
 @media (max-width: 480px) {
@@ -256,12 +192,24 @@
   .content-card {
     padding: 1.25rem;
   }
+  
+  .service-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+  }
 }
 
 /* Enhancements for better mobile experience */
 @media (hover: none) {
   .service-item:hover {
     background-color: transparent;
+    transform: none;
+  }
+  
+  .service-item:hover .service-icon {
+    background-color: #f3e8ff;
+    color: #a7489b;
     transform: none;
   }
   
