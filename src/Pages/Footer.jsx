@@ -16,7 +16,7 @@ export default function Footer() {
         style={{ background: 'linear-gradient(to right, #170732, #5b2885)' }}
         id="contact"
       >
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl pt-5 font-bold text-white mb-6 flex items-center justify-center text-center gap-3">
+        <h2 className="text-4xl sm:text-4xl md:text-6xl lg:text-7xl pt-5 font-bold text-white mb-6 flex items-center justify-center text-center gap-3">
   <span className="flex items-center gap-2">
     Get in Touch
     <span className="animate-slide">
@@ -47,7 +47,7 @@ export default function Footer() {
               <Link to="/" className="inline-block mb-4 bg-white">
                 <img src="img/logo.png" alt="Homeverse logo" className="h-10" />
               </Link>
-              <p className="text-sm text-justify">
+              <p className="text-md text-justify">
                 Digitokmedia is your digital partner, dedicated to branding your brand. With years of experience, our team uses strategic and creative solutions to boost your brand's visibility. We help you grow through innovative marketing and lasting audience engagement.
               </p>
             </div>
@@ -55,23 +55,23 @@ export default function Footer() {
             {/* Useful Links */}
             <div>
               <ul className="space-y-2 text-left">
-                <h3 className="text-2xl font-semibold text-left uppercase mb-4">Useful Links</h3>
-                <li><a href="/#home" className="text-white no-underline">Home</a></li>
-                <li><a href="/#explore" className="text-white no-underline">Explore Us</a></li>
+                <h3 className="text-3xl font-semibold text-left uppercase mb-4">Useful Links</h3>
+                <li><a href="/#home" className="text-white text-md no-underline">Home</a></li>
+                <li><a href="/#explore" className="text-white text-md no-underline">Explore Us</a></li>
               </ul>
             </div>
 
             {/* Our Works - Services */}
             <div>
               <ul className="space-y-2 text-left">
-                <h3 className="text-2xl font-semibold uppercase text-left mb-4">Our Works</h3>
+                <h3 className="text-3xl font-semibold uppercase text-left mb-4">Our Works</h3>
                 {[
                   "GRAPHIC DESIGNING", "VIDEO EDITING", "MOTION GRAPHIC",
                   "DIGITAL MARKETING", "MAGAZINE DESIGNING",
                   "WEBSITE DEVELOPMENT", "BRANDING"
                 ].map((work, index) => (
                   <li key={index}>
-                    <Link to="/services#services" className="text-white no-underline">
+                    <Link to="/services#services" className="text-white text-md no-underline">
                       {work.toLowerCase().replace(/\b\w/g, (char) => char.toUpperCase())}
                     </Link>
                   </li>
@@ -82,7 +82,7 @@ export default function Footer() {
             {/* Contact Information */}
             <div>
   <ul className="space-y-3 text-left">
-    <h3 className="text-2xl font-semibold uppercase text-left mb-4">Contact</h3>
+    <h3 className="text-3xl font-semibold uppercase text-left mb-4">Contact</h3>
 
     {/* Section Title */}
     <li>
@@ -104,7 +104,7 @@ export default function Footer() {
     {/* Phone Numbers */}
     <li className="flex items-center space-x-2">
       <Phone className="w-5 h-5 text-white" />
-      <a href="tel:+916381035430" className="text-white no-underline">63810 35430</a>
+      <a href="tel:+919791542153" className="text-white no-underline">97915 42153</a>
     </li>
 
     <li>
@@ -114,12 +114,12 @@ export default function Footer() {
     <li className="flex items-center space-x-2">
   <FaWhatsapp className="w-5 h-5 text-white" />
   <a
-    href="https://wa.me/919791542153"
+    href="https://wa.me/916381035430"
     target="_blank"
     rel="noopener noreferrer"
     className="text-white no-underline"
   >
-    97915 42153
+    63810 35430
   </a>
 </li>
 
