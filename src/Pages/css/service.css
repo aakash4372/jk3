@@ -1,4 +1,4 @@
-/* Service Section Base Styles */
+@import url('https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&family=Commissioner:wght@100..900&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 .service-section {
   background: white;
   padding-bottom: 4rem;
@@ -56,12 +56,21 @@
 }
 
 .tagline-text {
-  font-size: 1.2rem;
-  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
   color: #6b7280; /* or any color that matches your design */
-  margin-top: 0.5rem;
-  margin-bottom: 1.5rem;
   font-family: var(--fontfamily3);
+  border-radius: 8px;
+  animation: popIn 0.8s ease-out both;
+}
+.quote-icon {
+  font-size: 1.4rem;
+  color: #6b7280;
+  opacity: 0.8;
 }
 
 .title-gradient {
@@ -227,5 +236,40 @@
   
   .hover-zoom:hover {
     transform: none;
+  }
+}
+
+.service-top-heading {
+  font-family: "Outfit", sans-serif;
+  background: linear-gradient(90deg, #844c9e, #be4599);
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-weight: 550 !important;
+  color: transparent;
+  font-size: 2rem; /* Default for small devices */
+}
+
+
+@media (min-width: 576px) {
+  .service-top-heading {
+    font-size: 2rem; /* Small devices */
+  }
+}
+
+@media (min-width: 768px) {
+  .service-top-heading {
+    font-size: 3rem; /* Medium devices */
+  }
+}
+
+@media (min-width: 992px) {
+  .service-top-heading {
+    font-size: 3.5rem; /* Large devices */
+  }
+}
+
+@media (min-width: 1200px) {
+  .service-top-heading {
+    font-size: 4rem; /* Extra large screens */
   }
 }

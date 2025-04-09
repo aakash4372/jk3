@@ -8,6 +8,7 @@ import "./css/service.css";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useLocation } from "react-router-dom";
+import { RiDoubleQuotesL, RiDoubleQuotesR } from "react-icons/ri";
 
 // React Icons
 import { 
@@ -269,7 +270,11 @@ const Servicesection = () => {
 
   return (
     <div className="service-section" id="services">
-      <div className="pt-20">
+    <h2 className="container service-top-heading text-center pt-32 fs-1" data-aos="zoom-in">
+  We Create Something That Is so Good People Can't Sleep Without Talking About You.
+</h2>
+
+      <div className="">
         {services.map((service, index) => (
           <div 
             key={service.id}
@@ -306,7 +311,12 @@ const Servicesection = () => {
                   <h1 className="section-title">
                     <span className="title-gradient">{service.title}</span>
                   </h1>
-                  <h2 className="tagline-text">{service.tagline}</h2>
+                    <h2 className="tagline-text">
+                    <RiDoubleQuotesL className="quote-icon" />
+                    {service.tagline}
+                    <RiDoubleQuotesR className="quote-icon" />
+                  </h2>
+
                   <p className="description-text">{service.description}</p>
 
                   <ul className="services-list">

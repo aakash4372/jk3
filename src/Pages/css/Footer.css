@@ -15,4 +15,17 @@ footer {
   .animate-moveX {
     animation: moveX 2s linear infinite;
   }
+  @keyframes slideEffort {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(10px);
+    }
+  }
+  
+  .animate-slide {
+    animation: slideEffort 1s infinite ease-in-out;
+  }
+  
   

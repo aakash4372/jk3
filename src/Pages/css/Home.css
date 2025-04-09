@@ -30,15 +30,16 @@
 }
 
 .hero-section h4 {
-  font-size: 5.5rem;
   font-weight: 700;
   font-family: var(--fontfamily4);
   color: #3e495b;
   margin-bottom: 10px;
 }
-
-.hero-section .display-4 {
+.hero-section .display-3{
   font-size: 5rem !important;
+}
+.hero-section .display-4 {
+  font-size: 5.1rem !important;
   font-weight: 800;
   background: linear-gradient(90deg, #9a4a9c, #c04499);
   background-clip: text;

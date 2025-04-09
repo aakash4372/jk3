@@ -2,7 +2,9 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import './css/Footer.css';
 import { Mail, Phone } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import Wavify from 'react-wavify';
+import { IoIosArrowForward } from "react-icons/io";
 
 export default function Footer() {
   return (
@@ -14,7 +16,15 @@ export default function Footer() {
         style={{ background: 'linear-gradient(to right, #170732, #5b2885)' }}
         id="contact"
       >
-   
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl pt-5 font-bold text-white mb-6 flex items-center justify-center text-center gap-3">
+  <span className="flex items-center gap-2">
+    Get in Touch
+    <span className="animate-slide">
+      <IoIosArrowForward className="text-white mt-2 text-3xl sm:text-4xl" />
+    </span>
+  </span>
+</h2>
+
 
         {/* Enquiry Button */}
         <div className="flex justify-center pt-11">
@@ -29,9 +39,11 @@ export default function Footer() {
 
         {/* Footer Top */}
         <div className="py-10 pb-32">
+          
           <div className="container grid md:grid-cols-4 gap-8 px-4 md:px-0">
             {/* Footer Brand */}
             <div>
+              
               <Link to="/" className="inline-block mb-4 bg-white">
                 <img src="img/logo.png" alt="Homeverse logo" className="h-10" />
               </Link>
@@ -43,7 +55,7 @@ export default function Footer() {
             {/* Useful Links */}
             <div>
               <ul className="space-y-2 text-left">
-                <h3 className="text-lg font-semibold text-left uppercase mb-4">Useful Links</h3>
+                <h3 className="text-2xl font-semibold text-left uppercase mb-4">Useful Links</h3>
                 <li><a href="/#home" className="text-white no-underline">Home</a></li>
                 <li><a href="/#explore" className="text-white no-underline">Explore Us</a></li>
               </ul>
@@ -52,7 +64,7 @@ export default function Footer() {
             {/* Our Works - Services */}
             <div>
               <ul className="space-y-2 text-left">
-                <h3 className="text-lg font-semibold uppercase text-left mb-4">Our Works</h3>
+                <h3 className="text-2xl font-semibold uppercase text-left mb-4">Our Works</h3>
                 {[
                   "GRAPHIC DESIGNING", "VIDEO EDITING", "MOTION GRAPHIC",
                   "DIGITAL MARKETING", "MAGAZINE DESIGNING",
@@ -69,42 +81,68 @@ export default function Footer() {
 
             {/* Contact Information */}
             <div>
-              <ul className="space-y-3 text-left">
-                <h3 className="text-lg font-semibold uppercase text-left mb-4">Contact</h3>
+  <ul className="space-y-3 text-left">
+    <h3 className="text-2xl font-semibold uppercase text-left mb-4">Contact</h3>
 
-                {/* Mail */}
-                <li className="flex items-center space-x-2">
-                  <Mail className="w-5 h-5 text-white" />
-                  <a href="mailto:collab@digitokmedia.com" target="_blank" rel="noopener noreferrer" className="text-white no-underline">
-                    collab@digitokmedia.com
-                  </a>
-                </li>
+    {/* Section Title */}
+    <li>
+      <p className="text-white text-lg font-medium">Reach Out :</p>
+    </li>
 
-                {/* Phone Numbers */}
-                <li className="flex items-center space-x-2">
-                  <Phone className="w-5 h-5 text-white" />
-                  <a href="tel:+916381035430" className="text-white no-underline">63810 35430</a>
-                </li>
+    {/* Mail */}
+    <li className="flex items-center space-x-2">
+      <Mail className="w-5 h-5 text-white" />
+      <a href="mailto:collab@digitokmedia.com" target="_blank" rel="noopener noreferrer" className="text-white no-underline">
+        collab@digitokmedia.com
+      </a>
+    </li>
 
-                <li className="flex items-center space-x-2">
-                  <Phone className="w-5 h-5 text-white" />
-                  <a href="tel:+919791542153" className="text-white no-underline">97915 42153</a>
-                </li>
+    <li>
+      <p className="text-white text-lg font-medium">Let’s Talk :</p>
+    </li>
 
-                {/* Social Media Links */}
-                <li className="flex space-x-5 mt-4">
-                  <a href="" target="_blank" rel="noopener noreferrer">
-                    <img src="img/instagram.png" alt="Instagram" className="h-8" />
-                  </a>
-                  <a href="" target="_blank" rel="noopener noreferrer">
-                    <img src="img/youtube.png" alt="Youtube" className="h-8" />
-                  </a>
-                  <a href="" target="_blank" rel="noopener noreferrer">
-                    <img src="img/facebook.png" alt="Facebook" className="h-8" />
-                  </a>
-                </li>
-              </ul>
-            </div>
+    {/* Phone Numbers */}
+    <li className="flex items-center space-x-2">
+      <Phone className="w-5 h-5 text-white" />
+      <a href="tel:+916381035430" className="text-white no-underline">63810 35430</a>
+    </li>
+
+    <li>
+      <p className="text-white text-lg font-medium">Let’s Chat :</p>
+    </li>
+
+    <li className="flex items-center space-x-2">
+  <FaWhatsapp className="w-5 h-5 text-white" />
+  <a
+    href="https://wa.me/919791542153"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-white no-underline"
+  >
+    97915 42153
+  </a>
+</li>
+
+    {/* Social Media Title */}
+    <li>
+      <p className="text-white text-lg font-medium mt-4">Stay in Touch :</p>
+    </li>
+
+    {/* Social Media Links */}
+    <li className="flex space-x-5 mt-2">
+      <a href="#" target="_blank" rel="noopener noreferrer">
+        <img src="img/instagram.png" alt="Instagram" className="h-8" />
+      </a>
+      <a href="#" target="_blank" rel="noopener noreferrer">
+        <img src="img/youtube.png" alt="Youtube" className="h-8" />
+      </a>
+      <a href="#" target="_blank" rel="noopener noreferrer">
+        <img src="img/facebook.png" alt="Facebook" className="h-8" />
+      </a>
+    </li>
+  </ul>
+</div>
+
           </div>
         </div>
 
