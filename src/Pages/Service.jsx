@@ -5,17 +5,16 @@ import vrvideo from "/img/VR 360 SERVICE.jpg";
 import digitalMarketing from "/img/DIGITAL MARKETING.jpg";
 import websiteDevelopment from "/img/WEBSITE CREATION.jpg";
 import "./css/service.css";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { useLocation } from "react-router-dom";
-import { RiDoubleQuotesL, RiDoubleQuotesR } from "react-icons/ri";
 
 // React Icons
-import { 
-  FaPenFancy, 
-  FaVideo, 
-  FaVrCardboard, 
-  FaBullhorn, 
+import {
+  FaPenFancy,
+  FaVideo,
+  FaVrCardboard,
+  FaBullhorn,
   FaCode,
   FaPhotoVideo,
   FaFilm,
@@ -31,13 +30,13 @@ import {
   FaBoxOpen,
   FaChartBar,
   FaFacebook,
-  FaGoogle
+  FaGoogle,
 } from "react-icons/fa";
-import { 
-  MdWeb, 
-  MdDesignServices, 
-  MdEdit, 
-  Md360, 
+import {
+  MdWeb,
+  MdDesignServices,
+  MdEdit,
+  Md360,
   MdTrendingUp,
   MdOutlineAnimation,
   MdOutlineFeaturedVideo,
@@ -46,7 +45,7 @@ import {
   MdEmail,
   MdLocalOffer,
   MdStore,
-  MdArticle
+  MdArticle,
 } from "react-icons/md";
 
 // Import your video files
@@ -64,7 +63,7 @@ const serviceIcons = {
   // vrVideos: <Md360 />,
   // digitalMarketing: <GiCommercialBoat />,
   // websiteDevelopment: <FaLaptopCode />,
-  
+
   // Specific service item icons
   "Logo Design": <FaPenNib />,
   "Brand Identity & Style Guide": <FaPaintBrush />,
@@ -73,25 +72,25 @@ const serviceIcons = {
   "Flyer & Brochure Design": <MdArticle />,
   "Poster & Banner Design": <FaAd />,
   "Advertisement Design": <MdLocalOffer />,
-  "Magazine": <FaNewspaper />,
+  Magazine: <FaNewspaper />,
   "Social Media Video Ads": <FaFacebook />,
   "Explainer Videos": <MdOutlineFeaturedVideo />,
   "Motion Graphic": <MdOutlineAnimation />,
-  "Reels": <MdOutlineVideoSettings />,
+  Reels: <MdOutlineVideoSettings />,
   "Product Promo Videos": <MdStore />,
   "YouTube Video Editing": <FaFilm />,
   "Event Videos": <FaPhotoVideo />,
-  "Typography": <FaPenFancy />,
+  Typography: <FaPenFancy />,
   "Testimonial Videos": <FaVideo />,
   "Logo Animation": <MdOutlineAnimation />,
-  "Video": <FaVideo />,
-  "Photos": <FaPhotoVideo />,
+  Video: <FaVideo />,
+  Photos: <FaPhotoVideo />,
   "Google ads": <FaGoogle />,
   "Meta ads": <FaFacebook />,
   "Custom Website Development": <FaCode />,
   "Mobile-Friendly (Responsive) Website": <FaMobile />,
   "Website Maintenance & Updates": <MdWeb />,
-  "Website Redesign & Improvement": <FaLaptopCode />
+  "Website Redesign & Improvement": <FaLaptopCode />,
 };
 
 const Servicesection = () => {
@@ -100,53 +99,53 @@ const Servicesection = () => {
     videoEditing: false,
     vrVideos: false,
     digitalMarketing: false,
-    websiteDevelopment: false
+    websiteDevelopment: false,
   });
   const location = useLocation();
-  
+
   // Refs for video elements and timeout IDs
   const videoRefs = {
     graphicDesign: useRef(null),
     videoEditing: useRef(null),
     vrVideos: useRef(null),
     digitalMarketing: useRef(null),
-    websiteDevelopment: useRef(null)
+    websiteDevelopment: useRef(null),
   };
   const timeoutRefs = useRef({});
 
   useEffect(() => {
     AOS.init({
       duration: 800,
-      easing: 'ease-in-out',
-      once: true
+      easing: "ease-in-out",
+      once: true,
     });
 
     // Set up intersection observers for each section
     const observerOptions = {
       root: null,
-      rootMargin: '0px',
-      threshold: 0.5
+      rootMargin: "0px",
+      threshold: 0.5,
     };
 
     const sectionIds = [
-      'graphicDesign-section',
-      'videoEditing-section',
-      'vrVideos-section',
-      'digitalMarketing-section',
-      'websiteDevelopment-section'
+      "graphicDesign-section",
+      "videoEditing-section",
+      "vrVideos-section",
+      "digitalMarketing-section",
+      "websiteDevelopment-section",
     ];
 
     const observers = {};
 
-    sectionIds.forEach(sectionId => {
-      const videoKey = sectionId.split('-')[0];
-      
+    sectionIds.forEach((sectionId) => {
+      const videoKey = sectionId.split("-")[0];
+
       observers[videoKey] = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
             // Section is in view - start timer to show video
             timeoutRefs.current[videoKey] = setTimeout(() => {
-              setActiveVideos(prev => ({ ...prev, [videoKey]: true }));
+              setActiveVideos((prev) => ({ ...prev, [videoKey]: true }));
               try {
                 videoRefs[videoKey].current?.play();
               } catch (e) {
@@ -156,7 +155,7 @@ const Servicesection = () => {
           } else {
             // Section is out of view - hide and reset video
             clearTimeout(timeoutRefs.current[videoKey]);
-            setActiveVideos(prev => ({ ...prev, [videoKey]: false }));
+            setActiveVideos((prev) => ({ ...prev, [videoKey]: false }));
             videoRefs[videoKey].current?.pause();
             videoRefs[videoKey].current.currentTime = 0;
           }
@@ -171,10 +170,10 @@ const Servicesection = () => {
 
     return () => {
       // Cleanup observers and timeouts
-      Object.values(observers).forEach(observer => {
+      Object.values(observers).forEach((observer) => {
         observer.disconnect();
       });
-      Object.values(timeoutRefs.current).forEach(timeoutId => {
+      Object.values(timeoutRefs.current).forEach((timeoutId) => {
         clearTimeout(timeoutId);
       });
     };
@@ -197,7 +196,8 @@ const Servicesection = () => {
       tagline: "Your brand's voice, made visible",
       image: Graphic,
       video: graphicDesignVideo,
-      description: "Graphic design is the art of visual communication that combines typography, images, colors, and layouts for branding and marketing. We provide logo design, social media graphics, brochures, and flyers to strengthen brand identity. Our services include magazine layouts, packaging design, infographics, and promotional materials like thumbnails and posters, helping businesses establish a strong visual presence.",
+      description:
+        "Graphic design is the art of visual communication that combines typography, images, colors, and layouts for branding and marketing. We provide logo design, social media graphics, brochures, and flyers to strengthen brand identity. Our services include magazine layouts, packaging design, infographics, and promotional materials like thumbnails and posters, helping businesses establish a strong visual presence.",
       items: [
         "Logo Design",
         "Brand Identity & Style Guide",
@@ -206,17 +206,18 @@ const Servicesection = () => {
         "Flyer & Brochure Design",
         "Poster & Banner Design",
         "Advertisement Design",
-        "Magazine"
+        "Magazine",
       ],
-      align: "left"
+      align: "left",
     },
     {
       id: "videoEditing",
       title: "Video Editing",
-      tagline: "Let's create visuals that speak louder than words.",
+      tagline: "Let's create visuals that speak louder than words",
       image: Video,
       video: videoEditingVideo,
-      description: "We create documentaries that tell important stories and cover various subjects. Our services include profile videos highlighting individual achievements, engaging reels for creative work or events, insightful podcasts with engaged discussions, professional interview services for authentic perspectives, and impactful advertisements to promote brands and products effectively.",
+      description:
+        "We create documentaries that tell important stories and cover various subjects. Our services include profile videos highlighting individual achievements, engaging reels for creative work or events, insightful podcasts with engaged discussions, professional interview services for authentic perspectives, and impactful advertisements to promote brands and products effectively.",
       items: [
         "Social Media Video Ads",
         "Explainer Videos",
@@ -227,9 +228,9 @@ const Servicesection = () => {
         "Event Videos",
         "Typography",
         "Testimonial Videos",
-        "Logo Animation"
+        "Logo Animation",
       ],
-      align: "right"
+      align: "right",
     },
     {
       id: "vrVideos",
@@ -237,46 +238,59 @@ const Servicesection = () => {
       tagline: "See the world in 360°",
       image: vrvideo,
       video: vrVideosVideo,
-      description: "Virtual Reality (VR) videos offer an engaging experience that engages viewers in a 360-degree environment. Unlike traditional videos, VR allows users to explore their surroundings freely, creating a genuine sense of presence.",
+      description:
+        "Virtual Reality (VR) videos offer an engaging experience that engages viewers in a 360-degree environment. Unlike traditional videos, VR allows users to explore their surroundings freely, creating a genuine sense of presence.",
       items: ["Video", "Photos"],
-      align: "left"
+      align: "left",
     },
     {
       id: "digitalMarketing",
       title: "Digital Marketing",
-      tagline: "See the world in 360°",
+      tagline: "We Think about what the user is going to type",
       image: digitalMarketing,
       video: digitalMarketingVideo,
-      description: "Digital marketing involves promoting products, services, or brands through online platforms such as social media, search engines, websites, and email. It encompasses strategies like search engine optimization (SEO), content marketing, social media marketing ( YouTube, Facebook , Instagram ), and paid advertising to engage target audiences, enhance brand awareness, and drive conversions.",
+      description:
+        "Digital marketing involves promoting products, services, or brands through online platforms such as social media, search engines, websites, and email. It encompasses strategies like search engine optimization (SEO), content marketing, social media marketing ( YouTube, Facebook , Instagram ), and paid advertising to engage target audiences, enhance brand awareness, and drive conversions.",
       items: ["Google ads", "Meta ads"],
-      align: "right"
+      align: "right",
     },
     {
       id: "websiteDevelopment",
       title: "Website Development",
-      tagline: "We don't just create websites; we craft digital masterpieces that function around the clock for your brand.",
+      tagline:
+        "We don’t just create websites; we craft digital masterpieces that function around the clock for your brand ",
       image: websiteDevelopment,
       video: websiteDevelopmentVideo,
-      description: "We provide website development services to help businesses build a strong online presence. Our expertise includes creating responsive and user-friendly websites for various purposes, such as e-commerce, portfolios, custom applications, etc. Our services cover UI/UX design, front-end and back-end development, SEO optimization, and website maintenance.",
+      description:
+        "We provide website development services to help businesses build a strong online presence. Our expertise includes creating responsive and user-friendly websites for various purposes, such as e-commerce, portfolios, custom applications, etc. Our services cover UI/UX design, front-end and back-end development, SEO optimization, and website maintenance.",
       items: [
         "Custom Website Development",
         "Mobile-Friendly (Responsive) Website",
         "Website Maintenance & Updates",
-        "Website Redesign & Improvement"
+        "Website Redesign & Improvement",
       ],
-      align: "left"
-    }
+      align: "left",
+    },
   ];
 
   return (
     <div className="service-section" id="services">
-    <h2 className="container service-top-heading text-center pt-32 fs-1" data-aos="zoom-in">
-  We Create Something That Is so Good People Can't Sleep Without Talking About You.
-</h2>
+      <h2
+        className="container text-uppercase service-top-heading text-center pt-32 fs-1"
+        data-aos="zoom-in"
+      >
+        Explore &nbsp;our &nbsp;services
+      </h2>
+      <h2
+        className="container service-top-heading text-center fs-1"
+        data-aos="zoom-in"
+      >
+        Discover how our services can enhance your business
+      </h2>
 
       <div className="">
         {services.map((service, index) => (
-          <div 
+          <div
             key={service.id}
             id={`${service.id}-section`}
             className={`service-container ${service.align}`}
@@ -292,7 +306,7 @@ const Servicesection = () => {
                     className="hover-zoom"
                     style={{ opacity: activeVideos[service.id] ? 0 : 1 }}
                   />
-                  <video 
+                  <video
                     ref={videoRefs[service.id]}
                     className="hover-video"
                     loop
@@ -307,14 +321,17 @@ const Servicesection = () => {
               </div>
 
               <div className={`text-container ${service.align}`}>
-                <div className="content-card" data-aos="fade-up" data-aos-delay="200">
+                <div
+                  className="content-card"
+                  data-aos="fade-up"
+                  data-aos-delay="200"
+                >
                   <h1 className="section-title">
                     <span className="title-gradient">{service.title}</span>
                   </h1>
-                    <h2 className="tagline-text">
-                    <RiDoubleQuotesL className="quote-icon" />
-                    {service.tagline}
-                    <RiDoubleQuotesR className="quote-icon" />
+                  <h2 className="tagline-text">
+                    &ldquo;&nbsp;
+                    {service.tagline} &rdquo;
                   </h2>
 
                   <p className="description-text">{service.description}</p>
@@ -325,7 +342,7 @@ const Servicesection = () => {
                         key={itemIndex}
                         className="service-item"
                         data-aos="fade-up"
-                        data-aos-delay={300 + (itemIndex * 50)}
+                        data-aos-delay={300 + itemIndex * 50}
                       >
                         <span className="service-icon">
                           {serviceIcons[item] || serviceIcons[service.id]}

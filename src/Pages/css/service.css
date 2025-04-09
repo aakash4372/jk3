@@ -67,11 +67,7 @@
   border-radius: 8px;
   animation: popIn 0.8s ease-out both;
 }
-.quote-icon {
-  font-size: 1.4rem;
-  color: #6b7280;
-  opacity: 0.8;
-}
+
 
 .title-gradient {
   background: linear-gradient(90deg, #994a9c, #c04499c0);
@@ -240,13 +236,12 @@
 }
 
 .service-top-heading {
-  font-family: "Outfit", sans-serif;
   background: linear-gradient(90deg, #844c9e, #be4599);
   -webkit-background-clip: text;
   background-clip: text;
-  font-weight: 550 !important;
+  font-weight: 800 !important;
   color: transparent;
-  font-size: 2rem; /* Default for small devices */
+  font-size: 3rem !important; /* Default for small devices */
 }
 
 
