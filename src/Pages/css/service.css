@@ -1,7 +1,8 @@
 /* Service Section Base Styles */
 .service-section {
-  background: #f4e0fea4;
+  background: white;
   padding-bottom: 4rem;
+  overscroll-behavior: contain;
 }
 
 .service-container {
@@ -50,8 +51,17 @@
   font-size: clamp(1.75rem, 5vw, 3.3rem);
   font-weight: 800;
   text-align: start;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   position: relative;
+}
+
+.tagline-text {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #6b7280; /* or any color that matches your design */
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-family: var(--fontfamily3);
 }
 
 .title-gradient {
@@ -95,7 +105,7 @@
 /* Content Card Styles */
 .content-card {
   border-radius: 12px;
-  padding: 2.5rem;
+  padding: 2rem;
   margin-bottom: 2rem;
   transition: box-shadow 0.3s ease;
   backdrop-filter: blur(10px);

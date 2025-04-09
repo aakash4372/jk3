@@ -193,6 +193,7 @@ const Servicesection = () => {
     {
       id: "graphicDesign",
       title: "Graphic Design",
+      tagline: "Your brand's voice, made visible",
       image: Graphic,
       video: graphicDesignVideo,
       description: "Graphic design is the art of visual communication that combines typography, images, colors, and layouts for branding and marketing. We provide logo design, social media graphics, brochures, and flyers to strengthen brand identity. Our services include magazine layouts, packaging design, infographics, and promotional materials like thumbnails and posters, helping businesses establish a strong visual presence.",
@@ -211,6 +212,7 @@ const Servicesection = () => {
     {
       id: "videoEditing",
       title: "Video Editing",
+      tagline: "Let's create visuals that speak louder than words.",
       image: Video,
       video: videoEditingVideo,
       description: "We create documentaries that tell important stories and cover various subjects. Our services include profile videos highlighting individual achievements, engaging reels for creative work or events, insightful podcasts with engaged discussions, professional interview services for authentic perspectives, and impactful advertisements to promote brands and products effectively.",
@@ -231,6 +233,7 @@ const Servicesection = () => {
     {
       id: "vrVideos",
       title: "Virtual Reality (VR) Videos",
+      tagline: "See the world in 360°",
       image: vrvideo,
       video: vrVideosVideo,
       description: "Virtual Reality (VR) videos offer an engaging experience that engages viewers in a 360-degree environment. Unlike traditional videos, VR allows users to explore their surroundings freely, creating a genuine sense of presence.",
@@ -240,6 +243,7 @@ const Servicesection = () => {
     {
       id: "digitalMarketing",
       title: "Digital Marketing",
+      tagline: "See the world in 360°",
       image: digitalMarketing,
       video: digitalMarketingVideo,
       description: "Digital marketing involves promoting products, services, or brands through online platforms such as social media, search engines, websites, and email. It encompasses strategies like search engine optimization (SEO), content marketing, social media marketing ( YouTube, Facebook , Instagram ), and paid advertising to engage target audiences, enhance brand awareness, and drive conversions.",
@@ -249,6 +253,7 @@ const Servicesection = () => {
     {
       id: "websiteDevelopment",
       title: "Website Development",
+      tagline: "We don't just create websites; we craft digital masterpieces that function around the clock for your brand.",
       image: websiteDevelopment,
       video: websiteDevelopmentVideo,
       description: "We provide website development services to help businesses build a strong online presence. Our expertise includes creating responsive and user-friendly websites for various purposes, such as e-commerce, portfolios, custom applications, etc. Our services cover UI/UX design, front-end and back-end development, SEO optimization, and website maintenance.",
@@ -301,6 +306,7 @@ const Servicesection = () => {
                   <h1 className="section-title">
                     <span className="title-gradient">{service.title}</span>
                   </h1>
+                  <h2 className="tagline-text">{service.tagline}</h2>
                   <p className="description-text">{service.description}</p>
 
                   <ul className="services-list">
