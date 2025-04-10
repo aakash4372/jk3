@@ -118,10 +118,11 @@
 
 .description-text {
   font-size: clamp(1rem, 2vw, 1.125rem);
-  color: #3e4144;
+  color: #260e449d;
   font-family: var(--fontfamily3);
-  line-height: 1.7;
+  line-height: 2;
   text-align: justify;
+  margin-bottom: 2rem;
 }
 
 /* Services List Styles */
@@ -222,7 +223,7 @@
   
   .service-item:hover .service-icon {
     background-color: #f3e8ff;
-    color: #a7489b;
+    color: #550fb8;
     transform: none;
   }
   
@@ -234,37 +235,114 @@
     transform: none;
   }
 }
-
+/* Base Styles */
 .service-top-heading {
   background: linear-gradient(90deg, #844c9e, #be4599);
   -webkit-background-clip: text;
   background-clip: text;
   font-weight: 800 !important;
   color: transparent;
-  font-size: 3rem !important; /* Default for small devices */
+  font-size: 4rem !important;
+  animation: glow-pulse 2s infinite alternate;
 }
 
+.service-sub-heading {
+  background: linear-gradient(90deg, #844c9e, #be4599);
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-weight: 800 !important;
+  color: transparent;
+  font-size: 3rem !important;
+  line-height: 1.3;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  animation: glow-pulse 2s infinite alternate;
+}
 
-@media (min-width: 576px) {
+.service-sub-heading span {
+  display: block;
+}
+
+.service-sub-heading span:nth-child(2) {
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+}
+
+.glow-button {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.glow-button:hover {
+  box-shadow: 0 0 20px rgba(86, 38, 127, 0.9),
+              0 0 30px rgba(86, 38, 127, 0.5);
+  transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes glow-pulse {
+  from { text-shadow: 0 0 5px rgba(190, 69, 153, 0.3); }
+  to { text-shadow: 0 0 20px rgba(190, 69, 153, 0.6); }
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 10px rgba(86, 38, 127, 0.7); }
+  70% { box-shadow: 0 0 20px rgba(86, 38, 127, 0.9); }
+  100% { box-shadow: 0 0 10px rgba(86, 38, 127, 0.7); }
+}
+
+.glow-button.pulse {
+  animation: pulse 2s infinite;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
   .service-top-heading {
-    font-size: 2rem; /* Small devices */
+    font-size: 3.5rem !important;
+  }
+  .service-sub-heading {
+    font-size: 2.75rem !important;
   }
 }
 
-@media (min-width: 768px) {
+@media (max-width: 992px) {
   .service-top-heading {
-    font-size: 3rem; /* Medium devices */
+    font-size: 3rem !important;
+  }
+  .service-sub-heading {
+    font-size: 2.5rem !important;
   }
 }
 
-@media (min-width: 992px) {
+@media (max-width: 768px) {
   .service-top-heading {
-    font-size: 3.5rem; /* Large devices */
+    font-size: 2.5rem !important;
+    animation: none; /* Disable animation on mobile if needed */
+    text-shadow: 0 0 10px rgba(190, 69, 153, 0.4); /* Static glow */
+  }
+  .service-sub-heading {
+    font-size: 2rem !important;
+    margin-top: 1.25rem;
+    margin-bottom: 1.5rem;
+    animation: none;
+    text-shadow: 0 0 8px rgba(190, 69, 153, 0.4);
+  }
+  .glow-button {
+    padding: 10px 20px; /* Smaller button on mobile */
   }
 }
 
-@media (min-width: 1200px) {
+@media (max-width: 576px) {
   .service-top-heading {
-    font-size: 4rem; /* Extra large screens */
+    font-size: 2rem !important;
+    line-height: 1.2;
+  }
+  .service-sub-heading {
+    font-size: 1.75rem !important;
+  }
+  .glow-button:hover {
+    transform: none; /* Disable scale on small devices */
   }
 }
